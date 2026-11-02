@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Campus Red · Red social universitaria</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css"></head>
+<body>
+
+<!-- BIENVENIDA -->
+<main id="v-welcome" class="wrap">
+  <section class="hero">
+    <h1>Tu campus, en una <mark>conversación</mark></h1>
+    <p>Campus Red es la red social de la universidad: publica tus ideas, pregunta tus dudas y comparte apuntes con estudiantes de tu carrera y de tus cursos.</p>
+    <button class="btn" id="go-reg">Crear mi perfil</button>
+    <button class="btn ghost" id="go-login">Iniciar sesión</button>
+    <button class="btn ghost hidden" id="go-cont"></button>
+  </section>
+  <section class="feat">
+    <div class="card"><h3>Publica y pregunta</h3><p>Comparte textos, dudas o información académica con toda la comunidad.</p></div>
+    <div class="card"><h3>Reacciona y comenta</h3><p>Da “Me gusta” y responde a las publicaciones de otros estudiantes.</p></div>
+    <div class="card"><h3>Grupos por carrera o curso</h3><p>Reúnete con quienes comparten tus materias y comparte contenido específico.</p></div>
+    <div class="card"><h3>Tu historial</h3><p>Cada interacción queda registrada y puedes generar un reporte cuando quieras.</p></div>
+  </section>
+</main>
+
+<!-- REGISTRO -->
+<main id="v-register" class="wrap hidden">
+  <h2 style="margin-bottom:16px">Crea tu perfil</h2>
+  <form class="card" id="f-reg">
+    <div class="row">
+      <label>Nombre<input name="nombre" required maxlength="40" autocomplete="given-name"></label>
+      <label>Apellido<input name="apellido" required maxlength="40" autocomplete="family-name"></label>
+    </div>
+    <label>Correo institucional<input name="correo" type="email" required autocomplete="email"></label>
+    <div class="row">
+      <label>Contraseña<input name="pass" type="password" required minlength="6" autocomplete="new-password"></label>
+      <label>Confirmar contraseña<input name="pass2" type="password" required minlength="6" autocomplete="new-password"></label>
+    </div>
+    <div class="row">
+      <label>Carrera<input name="carrera" required maxlength="60" placeholder="Ej. Ingeniería en Sistemas"></label>
+      <label>Semestre<select name="semestre" required><option value="">Elige…</option></select></label>
+    </div>
+    <label>Descripción de tu perfil<textarea name="desc" required maxlength="240" placeholder="Cuéntanos qué estudias, qué te interesa y en qué puedes ayudar."></textarea></label>
+    <p id="reg-err" class="err" role="alert"></p>
+    <div><button class="btn" type="submit">Registrarme</button> <button class="btn ghost" type="button" id="reg-back">Volver</button></div>
+  </form>
+</main>
+
+<!-- INICIO DE SESIÓN -->
+<main id="v-login" class="wrap hidden">
+  <h2 style="margin-bottom:16px">Iniciar sesión</h2>
+  <form class="card" id="f-login">
+    <label>Correo institucional<input name="correo" type="email" required autocomplete="email"></label>
+    <label>Contraseña<input name="pass" type="password" required autocomplete="current-password"></label>
+    <p id="login-err" class="err" role="alert"></p>
+    <div><button class="btn" type="submit">Entrar</button> <button class="btn ghost" type="button" id="login-back">Volver</button></div>
+    <p style="margin:0;color:var(--mut)">¿Aún no tienes cuenta? <button class="btn ghost sm" type="button" id="to-reg">Crear mi perfil</button></p>
+  </form>
+</main>
+
+<!-- RESUMEN -->
+<main id="v-summary" class="wrap hidden">
+  <h2 style="margin-bottom:16px">Tu registro está listo</h2>
+  <div class="card" style="max-width:560px">
+    <dl class="data" id="sum-data"></dl>
+    <p style="margin:18px 0 0"><button class="btn" id="enter">Entrar a la red social</button></p>
+  </div>
+</main>
+
+<!-- APP -->
+<div id="v-app" class="hidden">
+  <header class="top"><div class="wrap">
+    <span class="logo">Campus Red</span>
+    <nav class="tabs" aria-label="Secciones">
+      <button class="tab" data-tab="inicio">Inicio</button>
+      <button class="tab" data-tab="grupos">Grupos</button>
+      <button class="tab" data-tab="historial">Historial</button>
+      <button class="tab" data-tab="datos">Base de datos</button>
+    </nav>
+    <button class="btn ghost sm" id="exit">Salir</button>
+  </div></header>
+  <div class="wrap layout">
+    <aside class="card" id="side"></aside>
+    <section id="main"></section>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body></html>
